@@ -1,25 +1,25 @@
-# PassProve — administration portal
+# PassProve — administrační portál
 
-Next.js/TypeScript administration source for company accounts, shops, verification records, errors, transactions and settings, with Supabase client/server helpers.
+Zdrojové kódy administrace v Next.js a TypeScriptu pro firmy, e-shopy, ověření, chyby, transakce a nastavení. Datová vrstva využívá klientské a serverové funkce Supabase.
 
-**Status:** Legacy/parallel implementation. Local setup is currently blocked by malformed `package.json`.
+**Stav:** Starší/souběžná implementace. Lokální instalaci blokuje neplatný `package.json`.
 
-## Scope and architecture
+## Rozsah a architektura
 
-- `app/admin/` — administration routes and layouts.
-- `components/admin/` — dashboard, tables, detail dialogs and settings UI.
-- `lib/supabase/` — database clients and types.
-- `supabase/migrations/` — schema and administration-security migrations.
-- `middleware.ts` and `hooks/use-admin.ts` — request/UI access-control source.
+- `app/admin/` — administrační stránky a rozvržení.
+- `components/admin/` — přehledy, tabulky, podrobnosti a nastavení.
+- `lib/supabase/` — databázoví klienti a typy.
+- `supabase/migrations/` — migrace schématu a administračního zabezpečení.
+- `middleware.ts` a `hooks/use-admin.ts` — zdroje řízení přístupu k požadavkům a rozhraní.
 
-## Setup blocker
+## Co blokuje spuštění
 
-The dependencies object contains a standalone `"@rc-component/color-picker"` entry without a value, so it is not valid JSON. Repair the manifest and reconcile it with the lockfile before installing dependencies. The declared scripts are `dev` (`next dev`), `build` (`next build`) and `start` (`next start`); they have not been executed in this review.
+Objekt závislostí obsahuje samostatnou položku `"@rc-component/color-picker"` bez hodnoty, takže dokument není platný JSON. Před instalací opravte manifest a slaďte jej se souborem uzamčených verzí závislostí. Deklarované příkazy jsou `dev` (`next dev`), `build` (`next build`) a `start` (`next start`); při kontrole nebyly spuštěny.
 
-## Maintenance notes
+## Poznámky k údržbě
 
-Supabase configuration and policies must be verified in an isolated development project. The `smazat/` directory contains parallel route source; its name is not authorization to delete it. Route guards do not replace backend authorization. No route, migration or application behavior was modified by this README update.
+Konfiguraci Supabase a přístupové politiky ověřte v odděleném vývojovém projektu. Složka `smazat/` obsahuje souběžné zdroje stránek; její název není pokynem k odstranění. Ochrana stránek nenahrazuje oprávnění na serveru. Tato změna README nemění cesty, migrace ani chování aplikace.
 
-## Portfolio relevance
+## Přínos pro portfolio
 
-Provides a reference for operational dashboards, administration workflows and typed database integration. Consolidation and a reproducible build are prerequisites for presenting it as a maintained release.
+Reference pro provozní přehledy, administrační postupy a typovanou databázovou integraci. Před prezentací jako udržovaného vydání je nutné projekt sjednotit a zajistit opakovatelné sestavení.
